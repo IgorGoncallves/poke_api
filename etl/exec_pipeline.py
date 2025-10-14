@@ -47,8 +47,8 @@ def run_all_extractions():
         print(f" Falha na extração de combates: {e}\n")
 
     end_global = time.time()
-    print(f"🏁 Pipeline concluído em {(end_global - start_global):.2f} segundos.")
-    print("📦 Dados brutos salvos na pasta data/raw/.\n")
+    print(f" Pipeline concluído em {(end_global - start_global):.2f} segundos.")
+    print(" Dados brutos salvos na pasta data/raw/.\n")
 
 if __name__ == "__main__":
     run_all_extractions()

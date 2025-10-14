@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16.1
+    container_name: poke_db
+    restart: always
+    environment:
+      POSTGRES_USER: dbadmin
+      POSTGRES_PASSWORD: dbadmin123
+      POSTGRES_DB: poke_dw
+    ports:
+      - "5433:5432"  
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d  
+      - postgres_data:/var/lib/postgresql/data  
+    networks:
+      - poke_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dbadmin -d poke_dw"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
+
+networks:
+  poke_network:
+    driver: bridge

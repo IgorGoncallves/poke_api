@@ -90,9 +90,8 @@ def extract_battles_history_batch(token, per_page=100, batch_size=20, max_worker
         print(f" Progresso salvo após batch {start_page}-{end_page} (Total: {len(battles_history)} batalhas)\n")
 
         start_page = end_page + 1
-        time.sleep(1)  # pausa leve entre batches
+        time.sleep(1) 
 
-    # Salvamento final
     save_raw(battles_history, "battles_history")
     print(f"Extração finalizada. Total: {len(battles_history)} batalhas coletadas.")
     return battles_history
@@ -104,15 +103,14 @@ if __name__ == "__main__":
 
     battles = extract_battles_history_batch(
         token,
-        per_page=100,   # máximo permitido
-        batch_size=30,  # páginas por batch
-        max_workers=6,  # threads simultâneas
+        per_page=100,   
+        batch_size=30,  
+        max_workers=6,  
         resume=True
     )
 
     df = pd.DataFrame(battles)
     print("\n Prévia dos combates detalhados:")
     print(df.head())
-
     end = time.time()
     print(f"\n Tempo total de execução: {end - start:.2f} segundos")

@@ -2,13 +2,14 @@ import json
 from pathlib import Path
 from configuracoes.conexao_db import get_connection
 import time
+from configuracoes.sprites import get_sprite_url  
 
 def carregar_pokemons():
     caminho = Path("data/raw/pokemon_attributes.json")
     if not caminho.exists():
         print(" Arquivo pokemons.json não encontrado")
         return
-    
+
     with open(caminho, "r", encoding="utf-8") as f:
         pokemons = json.load(f)
 
@@ -16,14 +17,17 @@ def carregar_pokemons():
     cur = conn.cursor()
 
     for p in pokemons:
+        sprite_url = get_sprite_url(p.get("name"))
+
         cur.execute("""
             INSERT INTO stage.stg_pokemon (
                 id, name, hp, attack, defense,
                 sp_attack, sp_defense, speed,
-                generation, legendary, types
+                generation, legendary, types, sprite_url
             )
-            VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
-            ON CONFLICT (id) DO NOTHING;
+            VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)
+            ON CONFLICT (id) DO UPDATE SET
+                sprite_url = EXCLUDED.sprite_url;
         """, (
             p.get("id"),
             p.get("name"),
@@ -35,9 +39,10 @@ def carregar_pokemons():
             p.get("speed"),
             p.get("generation"),
             p.get("legendary"),
-            p.get("types")
+            p.get("types"),
+            sprite_url
         ))
-    
+
     conn.commit()
     cur.close()
     conn.close()

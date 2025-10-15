@@ -11,7 +11,8 @@ CREATE TABLE IF NOT EXISTS stage.stg_pokemon (
     speed INT,
     generation VARCHAR(10),
     legendary VARCHAR(10),
-    types VARCHAR(255)  
+    types VARCHAR(255),
+    sprite_url VARCHAR(500)
 );
 
 CREATE TABLE IF NOT EXISTS stage.stg_batalha (

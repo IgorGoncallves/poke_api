@@ -3,6 +3,8 @@ Executa as rotinas de coleta em sequência:
 1- Lista de Pokémons
 2- Atributos detalhados
 3- Histórico de combates
+4- Carga para Stage
+5- Transformação Dbt Stage to Dw
 """
 
 import time
@@ -96,3 +98,4 @@ def run_all_extractions():
 
 if __name__ == "__main__":
     run_all_extractions()
+    

@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS stage.stg_pokemon (
     sp_attack INT,
     sp_defense INT,
     speed INT,
-    generation INT,
+    generation VARCHAR(10),
     legendary VARCHAR(10),
     types VARCHAR(255)  
 );

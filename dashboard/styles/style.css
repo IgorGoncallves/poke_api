@@ -1,0 +1,114 @@
+/* ===============================
+   ESTILO PARA ST.METRIC()
+   =============================== */
+
+/* Card base */
+[data-testid="stMetric"] {
+    background: #ffffff;
+    border: 2px solid #00a5ac; /* Borda ciano */
+    border-radius: 16px;
+    padding: 1rem 0.5rem;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 165, 172, 0.15);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efeito hover */
+[data-testid="stMetric"]:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 165, 172, 0.25);
+}
+
+/* Título (label) */
+[data-testid="stMetricLabel"] {
+    color: #707070 !important; /* Cinza neutro */
+    font-weight: 600 !important;
+    font-size: 1rem !important;
+    text-align: center !important;
+}
+
+/* Valor */
+[data-testid="stMetricValue"] {
+    color: #00a5ac !important; /* Ciano */
+    font-weight: 900 !important;
+    font-size: 1.8rem !important;
+    text-align: center !important;
+}
+
+/* Centraliza o conteúdo interno */
+[data-testid="stMetric"] > div {
+    width: 100%;
+    text-align: center !important;
+    align-items: center !important;
+    justify-content: center !important;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Centraliza os cards nas colunas */
+div[data-testid="column"] > div:has([data-testid="stMetric"]) {
+    display: flex;
+    justify-content: center;
+}
+
+/* Limita tamanho e mantém responsivo */
+[data-testid="stMetric"] {
+    width: 90%;
+    max-width: 250px;
+    margin: 0 auto;
+}
+
+/* Tema escuro (automático) */
+[data-testid="stAppViewContainer"][theme="dark"] [data-testid="stMetric"] {
+    background: rgba(0, 0, 20, 0.6);
+    border-color: #00a5ac;
+}
+
+[data-testid="stAppViewContainer"][theme="dark"] [data-testid="stMetricLabel"] {
+    color: #cccccc !important;
+}
+
+[data-testid="stAppViewContainer"][theme="dark"] [data-testid="stMetricValue"] {
+    color: #00e0eb !important;
+}
+
+
+/* ===============================
+   PERSONALIZAÇÃO DAS TABS
+   =============================== */
+
+/* Container geral das abas */
+[data-testid="stTabs"] {
+    margin-top: 1.5rem;
+}
+
+/* Aba padrão (não selecionada) */
+[data-testid="stTab"] {
+    color: #707070 !important; /* Texto das abas inativas */
+    font-weight: 600;
+    background-color: #f5f5f5; /* Fundo leve */
+    border-radius: 8px 8px 0 0;
+    margin-right: 4px;
+    padding: 0.5rem 1rem;
+    transition: all 0.2s ease;
+}
+
+/* Efeito hover */
+[data-testid="stTab"]:hover {
+    background-color: #e0f7f8;
+    color: #00a5ac !important;
+}
+
+/* Aba ativa (selecionada) */
+[data-testid="stTab"][aria-selected="true"] {
+    background-color: #00a5ac !important; /* Cor de destaque */
+    color: #ffffff !important;            /* Texto branco */
+    border: 2px solid #00a5ac;
+    font-weight: 700;
+    box-shadow: 0 4px 8px rgba(0, 165, 172, 0.25);
+}
+
+/* Esconde o tab highlight (linha de seleção azul) */
+div[data-baseweb="tab-highlight"] {
+    display: none !important;
+}

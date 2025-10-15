@@ -9,6 +9,7 @@ SELECT
     CAST(sp_attack AS INT) AS ataque_especial,
     CAST(sp_defense AS INT) AS defesa_especial,
     CAST(speed AS INT) AS velocidade,
+    CAST(sprite_url AS VARCHAR(500)) AS sprite_url,
 
     --trata os 2 casos que vem Gen2 deixando tudo como inteiro
     CAST(

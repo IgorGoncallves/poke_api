@@ -11,5 +11,6 @@ SELECT
     speed,
     generation,
     legendary,
-    types
+    types,
+    sprite_url
 FROM stage.stg_pokemon

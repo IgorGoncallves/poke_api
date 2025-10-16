@@ -36,7 +36,7 @@ def extract_pokemons(token, per_page=50, max_pages=17):
         time.sleep(0.5)
     save_raw(all_pokemons, "pokemon_list")
     print(f" Total final extraído: {len(all_pokemons)} registros")
-    return 
+    return all_pokemons
 
 if __name__ == "__main__":
     start = time.time()

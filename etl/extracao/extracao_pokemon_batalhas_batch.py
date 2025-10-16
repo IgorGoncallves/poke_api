@@ -41,7 +41,7 @@ def get_battles_page(token, page, per_page):
     return []
 
 
-def extract_battles_history_batch(token, per_page=100, batch_size=20, max_workers=5, resume=False):
+def extract_battles_history_batch(token, per_page=100, batch_size=30, max_workers=6, resume=False):
     output_path = Path("data/raw/battles_history.json")
     battles_history = []
     start_page = 1
